@@ -35,9 +35,6 @@ RUN npm install && npm run build
 # Set permissions
 RUN chown -R www-data:www-data /var/www && chmod -R 755 /var/www
 
-# Run migrations and seed database automatically
-RUN php artisan migrate --force && php artisan db:seed --force
-
 # Expose port
 EXPOSE 8000
 
