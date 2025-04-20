@@ -24,4 +24,7 @@ export default defineConfig({
             input: 'resources/js/app.js',
         },
     },
+    server: {
+        host: true, // Important for Docker + Railway preview environments
+    },    
 });
