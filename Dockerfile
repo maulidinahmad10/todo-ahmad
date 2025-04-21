@@ -32,6 +32,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Install Node dependencies and build assets
 RUN npm install && npm run build
 
+COPY public/build public/build
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www && chmod -R 755 /var/www
 

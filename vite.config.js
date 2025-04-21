@@ -6,7 +6,8 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
 
     return {
-        base: `${env.VITE_APP_URL}/`, // Forces HTTPS in production builds
+        // Force HTTPS for production
+        base: mode === 'production' ? 'https://todo-ahmad-production.up.railway.app/' : '/',
         plugins: [
             laravel({
                 input: 'resources/js/app.js',
