@@ -3,11 +3,10 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, process.cwd(), '');
+    loadEnv(mode, process.cwd()); // You don’t need to use VITE_APP_URL directly
 
     return {
-        // Force HTTPS for production
-        base: mode === 'production' ? 'https://todo-ahmad-production.up.railway.app/' : '/',
+        base: '/', // ✅ Force relative assets or use https URL
         plugins: [
             laravel({
                 input: 'resources/js/app.js',
@@ -16,7 +15,7 @@ export default defineConfig(({ mode }) => {
             vue(),
         ],
         server: {
-            host: true, // Required for Docker/Railway
+            host: true,
         },
     };
 });
